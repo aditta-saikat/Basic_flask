@@ -1,0 +1,19 @@
+{% block title %} Database {% endblock %}
+
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+{%block content%}
+{% for item in values %}
+   <p> Name: {{item.username}} , Password: {{item.password}}</p>
+   <p> Email: {{item.email}}</p>
+{%endfor%}
+<a href="{{ url_for('login') }}">Log out.</a>
+{%endblock%}
